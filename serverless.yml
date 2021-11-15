@@ -1,0 +1,58 @@
+service: reduzin-backend
+
+frameworkVersion: "2"
+useDotenv: true
+
+package:
+  individually: true
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+  lambdaHashingVersion: 20201221
+
+functions:
+  redirect:
+    handler: src/api/redirect/find-and-update/handler.handler
+    events:
+      - http:
+          path: /
+          method: get
+      - http:
+          path: "/{id}"
+          method: get
+  url-create:
+    handler: src/api/url/create/handler.handler
+    events:
+      - http:
+          path: /url
+          method: post
+  url-list:
+    handler: src/api/url/list/handler.handler
+    events:
+      - http:
+          path: /url
+          method: get
+  user-login:
+    handler: src/api/user/login/handler.handler
+    events:
+      - http:
+          path: /user/login
+          method: post
+  user-register:
+    handler: src/api/user/register/handler.handler
+    events:
+      - http:
+          path: /user/register
+          method: post
