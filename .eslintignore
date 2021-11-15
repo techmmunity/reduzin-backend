@@ -65,3 +65,6 @@ schema.gql
 serverless.d.ts
 serverless.js
 serverless.js.map
+
+# Webpack
+webpack.config.js

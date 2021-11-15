@@ -110,6 +110,7 @@
 		"conta",
 		"dotenv",
 		"fastify",
+		"geoip",
 		"injectables",
 		"jwks",
 		"MONGODB",

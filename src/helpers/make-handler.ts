@@ -6,7 +6,7 @@ import { LambdaResponse } from "../types/aws";
 import { Route } from "../types/route";
 
 export const makeHandler =
-	(func: Route) =>
+	(entities: Array<any>, func: Route) =>
 	async (
 		event: APIGatewayProxyEvent,
 		context: Context,
@@ -14,7 +14,7 @@ export const makeHandler =
 		let connection = {} as Connection;
 
 		try {
-			connection = await connect();
+			connection = await connect(entities);
 
 			const result = await func({
 				event,

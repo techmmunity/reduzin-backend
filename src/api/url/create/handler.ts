@@ -6,18 +6,21 @@ import { UrlEntity } from "../../../database/url.entity";
 import { getUserData } from "../../../utils/auth/get-user-data";
 import { StatusCodeEnum } from "../../../enums/status-code";
 
-export const handler = makeHandler(async ({ event, connection }) => {
-	validateAuth(event);
+export const handler = makeHandler(
+	[UrlEntity],
+	async ({ event, connection }) => {
+		validateAuth(event);
 
-	await create(
-		{
-			urlRepository: connection.getRepository<UrlEntity>(UrlEntity),
-			userData: getUserData(event),
-		},
-		(event.body || {}) as V1CreateUrlInputSchema,
-	);
+		await create(
+			{
+				urlRepository: connection.getRepository<UrlEntity>(UrlEntity),
+				userData: getUserData(event),
+			},
+			(event.body || {}) as V1CreateUrlInputSchema,
+		);
 
-	return {
-		statusCode: StatusCodeEnum.CREATED,
-	};
-});
+		return {
+			statusCode: StatusCodeEnum.CREATED,
+		};
+	},
+);

@@ -7,13 +7,8 @@ module.exports = {
 	transform: {
 		"^.+\\.(t|j)s$": "ts-jest",
 	},
-	collectCoverageFrom: [
-		"v*/api/**/*.service.ts",
-		"v*/api/**/service/**/*.ts",
-		"!v*/api/**/*.controller.ts",
-		"!v*/api/**/service/**/*.schema.ts",
-	],
-	setupFiles: ["./v1/tests/setup.ts"],
+	collectCoverageFrom: ["./api/**/index.ts"],
+	setupFiles: ["./tests/setup.ts"],
 	coverageDirectory: "../coverage",
 	testEnvironment: "node",
 	moduleDirectories: ["node_modules", "src"],

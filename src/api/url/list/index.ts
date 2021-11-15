@@ -22,7 +22,7 @@ export const list = async (
 		},
 		index: "user_id_index",
 		startFrom: {
-			id: lastRecordId,
+			url: lastRecordId,
 		},
 		take: 15,
 	});

@@ -1,10 +1,8 @@
 import { Connection } from "@techmmunity/symbiosis-dynamodb";
-import { UrlEntity } from "../database/url.entity";
-import { UserEntity } from "../database/user.entity";
 
-export const connect = async () => {
+export const connect = async (entities: Array<any>) => {
 	const connection = new Connection({
-		entities: [UrlEntity, UserEntity],
+		entities,
 		namingStrategy: {
 			entity: "snake_case",
 			column: "camelCase",

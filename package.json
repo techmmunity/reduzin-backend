@@ -8,8 +8,10 @@
 	"dependencies": {
 		"@techmmunity/symbiosis": "^0.0.27",
 		"@techmmunity/symbiosis-dynamodb": "^0.0.16",
+		"@techmmunity/utils": "^1.8.1",
 		"bcrypt": "^5.0.1",
 		"dayjs": "^1.10.7",
+		"geoip-country": "^4.0.94",
 		"jsonwebtoken": "^8.5.1",
 		"reflect-metadata": "^0.1.13",
 		"uid": "^2.0.0",
@@ -21,6 +23,7 @@
 		"@techmmunity/eslint-config": "^5.1.2",
 		"@types/aws-lambda": "^8.10.85",
 		"@types/bcrypt": "^5.0.0",
+		"@types/geoip-country": "^4.0.0",
 		"@types/jest": "^27.0.1",
 		"@types/jsonwebtoken": "^8.5.5",
 		"@types/node": "^16.11.7",

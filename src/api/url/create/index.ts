@@ -25,7 +25,7 @@ export const create = async (
 	if (data.id) {
 		const recordWithSameId = await urlRepository.findOne({
 			where: {
-				id: data.id,
+				url: data.id,
 			},
 		});
 
@@ -36,7 +36,7 @@ export const create = async (
 
 	await urlRepository.save({
 		...data,
-		id: data.id || uid(),
+		url: data.id || uid(),
 		userId: userData.userId,
 	});
 };
